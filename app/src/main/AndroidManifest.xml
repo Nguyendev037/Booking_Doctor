@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Booking_Doctor"
         tools:targetApi="31">
         <activity
+            android:name=".ui.schedule.CreateScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.info.DetailInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.info.EditInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity

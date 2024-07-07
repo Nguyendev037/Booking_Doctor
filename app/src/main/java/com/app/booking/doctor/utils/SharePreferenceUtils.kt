@@ -46,6 +46,8 @@ object SharePreferenceUtils {
         return sharePref.getFloat(key, 0f)
     }
 
+    fun isFirstOpenApp(): Boolean = getBoolean("isFirstOpenApp", true)
+    fun setFirstOpenApp(value: Boolean) = saveKey("isFirstOpenApp", value)
 
     fun getLanguageCode(): String = getString("getLanguageCode", "")
     fun setLanguageCode(value: String) = saveKey("getLanguageCode", value)
