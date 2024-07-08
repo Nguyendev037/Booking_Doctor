@@ -6,15 +6,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.app.booking.doctor.R
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivitySplashBinding
 import com.app.booking.doctor.ui.login.LoginActivity
-import com.app.booking.doctor.ui.main.MainActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.ex.openActivity
 
@@ -33,7 +27,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun checkLogin() {
-
+        actionNext(LoginActivity::class.java)
     }
 
     private fun insetFirstData() {
@@ -41,7 +35,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
 
         SharePreferenceUtils.setFirstOpenApp(false)
-        actionNext(MainActivity::class.java)
+        actionNext(LoginActivity::class.java)
     }
 
     private fun actionNext(pClass: Class<out Activity>) {

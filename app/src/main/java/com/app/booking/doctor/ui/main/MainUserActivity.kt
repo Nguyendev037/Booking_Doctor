@@ -2,15 +2,28 @@ package com.app.booking.doctor.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.appcompat.app.AppCompatActivity
-import com.app.booking.doctor.R
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivityMainBinding
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainUserActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initView()
+        initData()
+        initListener()
+    }
+
+    private fun initView() {
+
+    }
+
+    private fun initData() {
+
+    }
+
+    private fun initListener() {
+
     }
 
     override fun inflateViewBinding(layoutInflater: LayoutInflater): ActivityMainBinding {

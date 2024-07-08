@@ -26,9 +26,10 @@
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.MainUserActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"
