@@ -14,22 +14,41 @@
         android:theme="@style/Theme.Booking_Doctor"
         tools:targetApi="31">
         <activity
-            android:name=".ui.schedule.CreateScheduleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.info.DetailInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.info.EditInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.MainUserActivity"
+            android:name=".ui.schedule.DetailScheduleActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".ui.profile.DetailDoctorActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.CreateProfileActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.doctor.MainDoctorActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.schedule.CreateScheduleActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.info.DetailInfoActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.info.EditInfoActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.user.MainUserActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"

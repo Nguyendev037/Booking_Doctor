@@ -1,11 +1,11 @@
-package com.app.booking.doctor.ui.main
+package com.app.booking.doctor.ui.main.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.app.booking.doctor.base.BaseActivity
-import com.app.booking.doctor.databinding.ActivityMainBinding
+import com.app.booking.doctor.databinding.ActivityMainUserBinding
 
-class MainUserActivity : BaseActivity<ActivityMainBinding>() {
+class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +26,8 @@ class MainUserActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-    override fun inflateViewBinding(layoutInflater: LayoutInflater): ActivityMainBinding {
-        return ActivityMainBinding.inflate(layoutInflater)
+    override fun inflateViewBinding(layoutInflater: LayoutInflater): ActivityMainUserBinding {
+        return ActivityMainUserBinding.inflate(layoutInflater)
     }
 
 }
