@@ -5,26 +5,21 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.app.booking.doctor.app.AppDatabase
-import com.app.booking.doctor.model.DoctorModel
+import com.app.booking.doctor.model.AccountModel
 
-
-class DoctorTable(context: Context) :
+class AccountTable(context: Context) :
     SQLiteOpenHelper(context, AppDatabase.DATABASE_NAME, null, AppDatabase.DATABASE_VERSION) {
 
     companion object {
-        private const val TABLE_NAME = "doctor_table"
+        private const val TABLE_NAME = "account_table"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
         val createTableQuery =
             "CREATE TABLE $TABLE_NAME (" +
-                    "id TEXT PRIMARY KEY, " +
-                    "userName TEXT, " +
-                    "name TEXT, " +
-                    "age TEXT," +
-                    "sex INT," +
-                    "exp TEXT," +
-                    "avt TEXT" +
+                    "userName TEXT PRIMARY KEY, " +
+                    "password TEXT, " +
+                    "role INT" +
                     ")"
         db.execSQL(createTableQuery)
     }
@@ -33,36 +28,28 @@ class DoctorTable(context: Context) :
 
     }
 
-    fun insertNewDoctor(data: DoctorModel) {
+    fun insertNewDoctor(data: AccountModel) {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put("id", data.id)
         contentValues.put("userName", data.userName)
-        contentValues.put("name", data.name)
-        contentValues.put("age", data.age)
-        contentValues.put("sex", data.sex)
-        contentValues.put("exp", data.exp)
-        contentValues.put("avt", data.avt)
+        contentValues.put("password", data.password)
+        contentValues.put("role", data.role)
         db.insert(TABLE_NAME, null, contentValues)
         db.close()
     }
 
-    fun getAllDataDoctor(): ArrayList<DoctorModel> {
-        val listData = ArrayList<DoctorModel>()
+    fun getAllDataDoctor(): ArrayList<AccountModel> {
+        val listData = ArrayList<AccountModel>()
         val selectQuery = "SELECT  * FROM $TABLE_NAME"
         val db = this.writableDatabase
         val cursor = db.rawQuery(selectQuery, null)
 
         if (cursor.moveToFirst()) {
             do {
-                val contact = DoctorModel(
+                val contact = AccountModel(
                     cursor.getString(0),
                     cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getInt(4),
-                    cursor.getString(5),
-                    cursor.getString(6)
+                    cursor.getInt(2)
                 )
                 listData.add(contact)
             } while (cursor.moveToNext())

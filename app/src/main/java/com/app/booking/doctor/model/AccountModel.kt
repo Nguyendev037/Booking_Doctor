@@ -1,6 +1,6 @@
 package com.app.booking.doctor.model
 
-class LoginModel(
+class AccountModel(
     var userName: String,
     var password: String,
     var role: Int,

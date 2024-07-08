@@ -1,4 +1,4 @@
-package com.app.booking.doctor.db
+package com.app.booking.doctor.app
 
 
 import android.content.Context
