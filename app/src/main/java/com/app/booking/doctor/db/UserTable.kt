@@ -25,6 +25,7 @@ class UserTable(context: Context) :
                     "id TEXT PRIMARY KEY, " +
                     "userName TEXT, " +
                     "name TEXT, " +
+                    "phone TEXT, " +
                     "age TEXT, " +
                     "sex INT, " +
                     "avt TEXT" +

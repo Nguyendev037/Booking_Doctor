@@ -57,7 +57,7 @@ class AppDatabase(context: Context) {
         userTable.getUser(username)
 
 
-    //========================================User=================================================
+    //========================================Doctor================================================
     fun insertNewDoctor(data: DoctorModel) {
         doctorTable.insertNewDoctor(data)
     }

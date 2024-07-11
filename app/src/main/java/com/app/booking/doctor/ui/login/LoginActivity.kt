@@ -119,7 +119,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             SharePreferenceUtils.setUsername(userName)
             SharePreferenceUtils.setPassword(pass)
             if (it.role == AccountModel.ROLE_USER) {
-                if (appDatabase.checkExitUser(userName)) {
+                val check = appDatabase.checkExitUser(userName)
+                if (check) {
                     actionNext(MainUserActivity::class.java)
                 } else {
                     openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
