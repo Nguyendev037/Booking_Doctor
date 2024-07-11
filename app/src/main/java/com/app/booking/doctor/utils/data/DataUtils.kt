@@ -41,49 +41,49 @@ object DataUtils {
             "file:///android_asset/avt/avt_1.png"
         ),
         DoctorModel(
-            "07010002", "d002","Nguyễn Văn Chung", "42", 0,
+            "07010002", "d002","Phạm Thành Quang", "40", 0,
+            "[Bác sĩ xương khớp]\nHơn 8 năm kinh nghiệm về các bệnh xương khớp",
+            "file:///android_asset/avt/avt_2.png"
+        ),
+        DoctorModel(
+            "07010003", "d003","Trần Văn Khang", "46", 0,
+            "[Bác sĩ răng hàm mặt]\nHơn 14 năm kinh nghiệm về rng hàm mặt",
+            "file:///android_asset/avt/avt_3.png"
+        ),
+        DoctorModel(
+            "07010004", "d004","Nguyễn Văn Bẩy", "41", 0,
+            "[Bác sĩ nội soi]\nHơn 9 năm kinh nghiệm trong ngành",
+            "file:///android_asset/avt/avt_3.png"
+        ),
+        DoctorModel(
+            "07010005", "d005","Nguyễn Thị Dung", "42", 1,
+            "[Bác sĩ tay mũi họng]\nHơn 10 năm kinh nghiệm về tai mũi họng",
+            "file:///android_asset/avt/avt_2.png"
+        ),
+        DoctorModel(
+            "07010006", "d006","Vũ Tiến Hoàng", "47", 0,
+            "[Bác sĩ xương khớp]\nHơn 15 năm kinh nghiệm về xương khớp",
+            "file:///android_asset/avt/avt_1.png"
+        ),
+        DoctorModel(
+            "07010007", "d007","Phạm Quang Trường", "42", 0,
             "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
             "file:///android_asset/avt/avt_1.png"
         ),
         DoctorModel(
-            "07010003", "d003","Nguyễn Văn Chung", "42", 0,
+            "07010008", "d008","Vũ Văn Nam", "42", 0,
             "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
+            "file:///android_asset/avt/avt_3.png"
         ),
         DoctorModel(
-            "07010004", "d004","Nguyễn Văn Chung", "42", 0,
+            "07010009", "d009","Trần THị Phương", "42", 1,
             "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
+            "file:///android_asset/avt/avt_2.png"
         ),
         DoctorModel(
-            "07010005", "d005","Nguyễn Văn Chung", "42", 0,
+            "07010010", "d010","Nguyễn Thị Quỳnh", "42", 1,
             "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
-        ),
-        DoctorModel(
-            "07010006", "d006","Nguyễn Văn Chung", "42", 0,
-            "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
-        ),
-        DoctorModel(
-            "07010007", "d007","Nguyễn Văn Chung", "42", 0,
-            "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
-        ),
-        DoctorModel(
-            "07010008", "d008","Nguyễn Văn Chung", "42", 0,
-            "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
-        ),
-        DoctorModel(
-            "07010009", "d009","Nguyễn Văn Chung", "42", 0,
-            "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
-        ),
-        DoctorModel(
-            "07010010", "d010","Nguyễn Văn Chung", "42", 0,
-            "[Bác sĩ răng hàm mặt]\nHơn 10 năm kinh nghiệm về nha khoa",
-            "file:///android_asset/avt/avt_1.png"
+            "file:///android_asset/avt/avt_2.png"
         ),
     )
 
