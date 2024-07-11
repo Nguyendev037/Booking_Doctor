@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivityMainUserBinding
+import com.app.booking.doctor.dialog.DialogDetailInfo
 import com.app.booking.doctor.dialog.DialogDetailSchedule
 import com.app.booking.doctor.model.UserModel
 import com.app.booking.doctor.ui.adapter.DoctorOfUserAdapter
@@ -35,6 +36,10 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
     private val dialogDetailSchedule by lazy {
         DialogDetailSchedule(this)
+    }
+
+    private val dialogDetailInfo by lazy {
+        DialogDetailInfo(this)
     }
 
     private var userModel = UserModel()
@@ -75,7 +80,7 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
     private fun initListener() {
         binding.imgAvt.clickSafe {
-
+            dialogDetailInfo.show(userModel)
         }
 
         doctorOfUserAdapter.setOnClickItem { item, position ->

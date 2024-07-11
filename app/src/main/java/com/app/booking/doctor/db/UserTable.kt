@@ -43,6 +43,7 @@ class UserTable(context: Context) :
         contentValues.put("userName", data.userName)
         contentValues.put("name", data.name)
         contentValues.put("age", data.age)
+        contentValues.put("phone", data.phone)
         contentValues.put("sex", data.sex)
         contentValues.put("avt", data.avt)
         db.insert(TABLE_NAME, null, contentValues)
@@ -62,8 +63,9 @@ class UserTable(context: Context) :
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getInt(4),
-                    cursor.getString(5)
+                    cursor.getString(4),
+                    cursor.getInt(5),
+                    cursor.getString(6)
                 )
                 listData.add(contact)
             } while (cursor.moveToNext())
@@ -86,8 +88,9 @@ class UserTable(context: Context) :
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3),
-                cursor.getInt(4),
-                cursor.getString(5)
+                cursor.getString(4),
+                cursor.getInt(5),
+                cursor.getString(6)
             )
         }
         cursor.close()

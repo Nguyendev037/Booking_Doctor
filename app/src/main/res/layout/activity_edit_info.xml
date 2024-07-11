@@ -148,6 +148,7 @@
                 android:layout_marginHorizontal="@dimen/_12sdp"
                 android:background="@drawable/bg_edt_input"
                 android:gravity="center"
+                android:layout_marginBottom="18dp"
                 android:paddingHorizontal="@dimen/_30sdp">
 
                 <RadioGroup
@@ -178,6 +179,30 @@
                 </RadioGroup>
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:fontFamily="@font/inter_400"
+                android:paddingVertical="@dimen/_2sdp"
+                android:text="Số điện thoại"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/bg_edt_input"
+                android:gravity="center_vertical"
+                android:hint="Nhập số điện thoại"
+                android:inputType="phone"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
 
         </LinearLayout>
 

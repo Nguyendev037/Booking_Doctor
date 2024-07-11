@@ -59,13 +59,13 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
             } ?: kotlin.run {
                 dataModel = UserModel(
                     System.currentTimeMillis().toString(), SharePreferenceUtils.getUsername(),
-                    "", "", 0, ""
+                    "", "","", 0, ""
                 )
             }
         } else {
             dataModel = UserModel(
                 System.currentTimeMillis().toString(), SharePreferenceUtils.getUsername(),
-                "", "", 0, ""
+                "", "","", 0, ""
             )
         }
 
@@ -79,6 +79,7 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
 
         binding.edtName.setText(dataModel.name)
         binding.edtBirthDay.setText(dataModel.age)
+        binding.edtPhoneNumber.setText(dataModel.phone)
 
     }
 
@@ -102,8 +103,14 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
                 return@clickSafe
             }
 
+            if (binding.edtPhoneNumber.text.toString().isEmpty()) {
+                showToast("Nhập số điện thoại!")
+                return@clickSafe
+            }
+
             dataModel.name = binding.edtName.text.toString()
             dataModel.age = binding.edtBirthDay.text.toString()
+            dataModel.phone = binding.edtPhoneNumber.text.toString()
 
             appDatabase.insertUser(dataModel)
 
