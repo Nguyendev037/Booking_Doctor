@@ -11,8 +11,7 @@ import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivitySplashBinding
 import com.app.booking.doctor.model.AccountModel
 import com.app.booking.doctor.ui.login.LoginActivity
-import com.app.booking.doctor.ui.main.doctor.MainDoctorActivity
-import com.app.booking.doctor.ui.main.user.MainUserActivity
+import com.app.booking.doctor.ui.main.MainUserActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.data.DataUtils
 import com.app.booking.doctor.utils.ex.openActivity
@@ -48,8 +47,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                 } else {
                     actionNext(LoginActivity::class.java)
                 }
-            } else {
-                actionNext(MainDoctorActivity::class.java)
             }
         } ?: kotlin.run {
             actionNext(LoginActivity::class.java)

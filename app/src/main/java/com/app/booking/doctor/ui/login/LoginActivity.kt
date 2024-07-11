@@ -9,8 +9,7 @@ import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivityLoginBinding
 import com.app.booking.doctor.model.AccountModel
 import com.app.booking.doctor.ui.info.EditInfoActivity
-import com.app.booking.doctor.ui.main.doctor.MainDoctorActivity
-import com.app.booking.doctor.ui.main.user.MainUserActivity
+import com.app.booking.doctor.ui.main.MainUserActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.ex.clickSafe
 import com.app.booking.doctor.utils.ex.gone
@@ -125,8 +124,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 } else {
                     openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
                 }
-            } else {
-                actionNext(MainDoctorActivity::class.java)
             }
         } ?: kotlin.run {
             showToast("Thông tin đăng nhập không chính xác!")

@@ -1,4 +1,4 @@
-package com.app.booking.doctor.ui.main.user
+package com.app.booking.doctor.ui.main
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivityMainUserBinding
+import com.app.booking.doctor.dialog.DialogDetailSchedule
 import com.app.booking.doctor.model.UserModel
 import com.app.booking.doctor.ui.adapter.DoctorOfUserAdapter
 import com.app.booking.doctor.ui.adapter.ScheduleUserAdapter
-import com.app.booking.doctor.ui.info.DetailInfoActivity
 import com.app.booking.doctor.ui.login.LoginActivity
 import com.app.booking.doctor.ui.schedule.CreateScheduleActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
@@ -31,6 +31,10 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
     private val scheduleUserAdapter by lazy {
         ScheduleUserAdapter()
+    }
+
+    private val dialogDetailSchedule by lazy {
+        DialogDetailSchedule(this)
     }
 
     private var userModel = UserModel()
@@ -71,7 +75,7 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
     private fun initListener() {
         binding.imgAvt.clickSafe {
-            openActivity(DetailInfoActivity::class.java)
+
         }
 
         doctorOfUserAdapter.setOnClickItem { item, position ->
@@ -79,7 +83,9 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
         }
 
         scheduleUserAdapter.setOnClickItem { item, position ->
-
+            item?.let {
+                dialogDetailSchedule.show(it)
+            }
         }
 
         binding.llCreateSchedule.clickSafe {

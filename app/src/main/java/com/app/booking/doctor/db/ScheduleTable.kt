@@ -76,7 +76,7 @@ class ScheduleTable(context: Context) :
 
     fun getAllScheduleOfUser(data: String): ArrayList<ScheduleModel> {
         val listData = ArrayList<ScheduleModel>()
-        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE idUser = '$data'"
+        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE idUser = '$data' ORDER BY id DESC"
         val db = this.writableDatabase
         val cursor = db.rawQuery(selectQuery, null)
 

@@ -21,15 +21,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.main.doctor.MainDoctorActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.schedule.CreateScheduleActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.info.DetailInfoActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -41,7 +33,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.main.user.MainUserActivity"
+            android:name=".ui.main.MainUserActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
