@@ -11,6 +11,7 @@ import com.app.booking.doctor.model.UserModel
 import com.app.booking.doctor.ui.adapter.DoctorOfUserAdapter
 import com.app.booking.doctor.ui.adapter.ScheduleUserAdapter
 import com.app.booking.doctor.ui.info.DetailInfoActivity
+import com.app.booking.doctor.ui.login.LoginActivity
 import com.app.booking.doctor.ui.schedule.CreateScheduleActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.ex.clickSafe
@@ -60,6 +61,14 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        appDatabase.getAllScheduleOfUser(SharePreferenceUtils.getUsername()).let {
+            scheduleUserAdapter.setDataList(it)
+        }
+    }
+
     private fun initListener() {
         binding.imgAvt.clickSafe {
             openActivity(DetailInfoActivity::class.java)
@@ -75,6 +84,12 @@ class MainUserActivity : BaseActivity<ActivityMainUserBinding>() {
 
         binding.llCreateSchedule.clickSafe {
             openActivity(CreateScheduleActivity::class.java)
+        }
+
+        binding.imgLogout.clickSafe {
+            SharePreferenceUtils.setUsername("")
+            SharePreferenceUtils.setPassword("")
+            openActivity(LoginActivity::class.java, true)
         }
 
     }

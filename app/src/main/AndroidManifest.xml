@@ -21,14 +21,6 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.profile.DetailDoctorActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.profile.CreateProfileActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.main.doctor.MainDoctorActivity"
             android:exported="true"
             android:screenOrientation="portrait" />

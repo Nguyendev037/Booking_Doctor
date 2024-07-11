@@ -1,9 +1,18 @@
 package com.app.booking.doctor.ui.info
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.app.booking.doctor.R
 import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseActivity
@@ -78,7 +87,11 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
 
     private fun initListener() {
         binding.imgAvt.clickSafe {
-            chooseImage()
+            if (Build.VERSION.SDK_INT >= 33) {
+                checkPermissionAndPickImageMediaImage()
+            } else {
+                checkPermissionAndPickImageReadExternal()
+            }
         }
 
         binding.txtNext.clickSafe {
@@ -112,6 +125,38 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
             }
         }
     }
+
+    private fun checkPermissionAndPickImageReadExternal() {
+        if (ContextCompat.checkSelfPermission(
+                this@EditInfoActivity,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            chooseImage()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun checkPermissionAndPickImageMediaImage() {
+        if (ContextCompat.checkSelfPermission(
+                this@EditInfoActivity,
+                Manifest.permission.READ_MEDIA_IMAGES
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            chooseImage()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.READ_MEDIA_IMAGES)
+        }
+    }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                chooseImage()
+            }
+        }
 
     private fun chooseImage() {
         val intent = Intent()

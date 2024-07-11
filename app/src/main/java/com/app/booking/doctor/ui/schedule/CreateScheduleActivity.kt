@@ -111,7 +111,7 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
 
         binding.txtNext.clickSafe {
             dataModel.pathological = binding.edtPathological.text.toString()
-
+            appDatabase.insertNewSchedule(dataModel)
             finish()
         }
     }
