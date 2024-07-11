@@ -4,9 +4,11 @@ package com.app.booking.doctor.app
 import android.content.Context
 import com.app.booking.doctor.db.AccountTable
 import com.app.booking.doctor.db.DoctorTable
+import com.app.booking.doctor.db.ScheduleTable
 import com.app.booking.doctor.db.UserTable
 import com.app.booking.doctor.model.AccountModel
 import com.app.booking.doctor.model.DoctorModel
+import com.app.booking.doctor.model.ScheduleModel
 import com.app.booking.doctor.model.UserModel
 
 class AppDatabase(context: Context) {
@@ -26,6 +28,10 @@ class AppDatabase(context: Context) {
 
     private val doctorTable by lazy {
         DoctorTable(context)
+    }
+
+    private val scheduleTable by lazy {
+        ScheduleTable(context)
     }
 
 
@@ -64,5 +70,20 @@ class AppDatabase(context: Context) {
 
     fun getAllDataDoctor() =
         doctorTable.getAllDataDoctor()
+
+
+    //======================================Schedule===============================================
+    fun insertNewSchedule(data: ScheduleModel) {
+        scheduleTable.insertNewSchedule(data)
+    }
+
+    fun getAllScheduleOfUser(data: String) =
+        scheduleTable.getAllScheduleOfUser(data)
+
+    fun getAllScheduleOfDoctor(data: String) =
+        scheduleTable.getAllScheduleOfDoctor(data)
+
+    fun getScheduleById(data: String) =
+        scheduleTable.getScheduleById(data)
 
 }

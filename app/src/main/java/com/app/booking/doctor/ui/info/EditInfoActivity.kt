@@ -92,6 +92,9 @@ class EditInfoActivity : BaseActivity<ActivityEditInfoBinding>() {
                 return@clickSafe
             }
 
+            dataModel.name = binding.edtName.text.toString()
+            dataModel.age = binding.edtBirthDay.text.toString()
+
             appDatabase.insertUser(dataModel)
 
             openActivity(MainUserActivity::class.java, true)

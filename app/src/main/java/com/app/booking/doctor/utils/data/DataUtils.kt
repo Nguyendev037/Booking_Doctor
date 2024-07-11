@@ -4,6 +4,36 @@ import com.app.booking.doctor.model.DoctorModel
 
 object DataUtils {
 
+    fun getDataDoctor() : ArrayList<String> {
+        val data = ArrayList<String>()
+        listDoctorFirst.forEach {
+            data.add("[${it.id}] - ${it.name}")
+        }
+        return data
+    }
+
+    val listScheduleTime = listOf(
+        "8:00 - 8:30",
+        "8:30 - 9:00",
+        "9:00 - 9:30",
+        "9:30 - 10:00",
+        "10:00 - 10:30",
+        "10:30 - 11:00",
+        "11:00 - 11:30",
+        "11:30 - 12:00",
+        "13:30 - 14:00",
+        "14:00 - 14:30",
+        "14:30 - 15:00",
+        "15:00 - 15:30",
+        "15:30 - 16:00",
+        "16:00 - 16:30",
+        "16:30 - 17:00",
+        "17:00 - 17:30",
+        "17:30 - 18:00",
+        "18:00 - 18:30",
+        "18:30 - 19:00"
+    )
+
     val listDoctorFirst = listOf(
         DoctorModel(
             "07010001", "d001","Nguyễn Văn Chung", "42", 0,
