@@ -98,8 +98,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         }
 
         appDatabase.interAccount(AccountModel(userName, pass, AccountModel.ROLE_USER))
+        SharePreferenceUtils.setUsername(userName)
+        SharePreferenceUtils.setPassword(pass)
 
-        openActivity(EditInfoActivity::class.java, bundleOf("action" to "regis"), true)
+        openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
     }
 
     private fun checkLogin() {
@@ -118,7 +120,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             SharePreferenceUtils.setUsername(userName)
             SharePreferenceUtils.setPassword(pass)
             if (it.role == AccountModel.ROLE_USER) {
-                actionNext(MainUserActivity::class.java)
+                if (appDatabase.checkExitUser(userName)) {
+                    actionNext(MainUserActivity::class.java)
+                } else {
+                    openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
+                }
             } else {
                 actionNext(MainDoctorActivity::class.java)
             }

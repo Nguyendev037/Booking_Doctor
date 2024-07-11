@@ -8,7 +8,7 @@ import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.model.AccountModel
 
 class AccountTable(context: Context) :
-    SQLiteOpenHelper(context, AppDatabase.DATABASE_NAME, null, AppDatabase.DATABASE_VERSION) {
+    SQLiteOpenHelper(context, AppDatabase.DATABASE_NAME + "account", null, AppDatabase.DATABASE_VERSION) {
 
     companion object {
         private const val TABLE_NAME = "account_table"

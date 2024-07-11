@@ -151,6 +151,12 @@ fun ImageView.loadGlide(src: Any) {
         .load(src)
         .into(this)
 }
+fun ImageView.loadAvt(src: Any) {
+    Glide.with(this.context)
+        .load(src)
+        .error(R.drawable.ic_default_profile)
+        .into(this)
+}
 
 fun ImageView.loadGlideAsBitmap(src: Any) {
     Glide.with(this.context)

@@ -14,6 +14,7 @@ import com.app.booking.doctor.ui.login.LoginActivity
 import com.app.booking.doctor.ui.main.doctor.MainDoctorActivity
 import com.app.booking.doctor.ui.main.user.MainUserActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
+import com.app.booking.doctor.utils.data.DataUtils
 import com.app.booking.doctor.utils.ex.openActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -42,7 +43,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
             SharePreferenceUtils.setUsername(userName)
             SharePreferenceUtils.setPassword(pass)
             if (it.role == AccountModel.ROLE_USER) {
-                actionNext(MainUserActivity::class.java)
+                if (appDatabase.checkExitUser(userName)) {
+                    actionNext(MainUserActivity::class.java)
+                } else {
+                    actionNext(LoginActivity::class.java)
+                }
             } else {
                 actionNext(MainDoctorActivity::class.java)
             }
@@ -52,9 +57,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun insetFirstData() {
-
-
-
+        DataUtils.listDoctorFirst.forEach {
+            appDatabase.insertNewDoctor(it)
+        }
         SharePreferenceUtils.setFirstOpenApp(false)
         actionNext(LoginActivity::class.java)
     }

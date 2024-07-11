@@ -9,7 +9,12 @@ import com.app.booking.doctor.model.DoctorModel
 
 
 class DoctorTable(context: Context) :
-    SQLiteOpenHelper(context, AppDatabase.DATABASE_NAME, null, AppDatabase.DATABASE_VERSION) {
+    SQLiteOpenHelper(
+        context,
+        AppDatabase.DATABASE_NAME + "doctor",
+        null,
+        AppDatabase.DATABASE_VERSION
+    ) {
 
     companion object {
         private const val TABLE_NAME = "doctor_table"
@@ -45,6 +50,50 @@ class DoctorTable(context: Context) :
         contentValues.put("avt", data.avt)
         db.insert(TABLE_NAME, null, contentValues)
         db.close()
+    }
+
+    fun getDoctorById(data: String): DoctorModel? {
+        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE id = '$data'"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            return DoctorModel(
+                cursor.getString(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getInt(4),
+                cursor.getString(5),
+                cursor.getString(6)
+            )
+        }
+
+        cursor.close()
+        db.close()
+        return null
+    }
+
+    fun getDoctorByUsername(data: String): DoctorModel? {
+        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE userName = '$data'"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            return DoctorModel(
+                cursor.getString(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getInt(4),
+                cursor.getString(5),
+                cursor.getString(6)
+            )
+        }
+
+        cursor.close()
+        db.close()
+        return null
     }
 
     fun getAllDataDoctor(): ArrayList<DoctorModel> {

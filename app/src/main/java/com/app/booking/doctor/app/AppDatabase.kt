@@ -3,7 +3,11 @@ package com.app.booking.doctor.app
 
 import android.content.Context
 import com.app.booking.doctor.db.AccountTable
+import com.app.booking.doctor.db.DoctorTable
+import com.app.booking.doctor.db.UserTable
 import com.app.booking.doctor.model.AccountModel
+import com.app.booking.doctor.model.DoctorModel
+import com.app.booking.doctor.model.UserModel
 
 class AppDatabase(context: Context) {
 
@@ -16,6 +20,16 @@ class AppDatabase(context: Context) {
         AccountTable(context)
     }
 
+    private val userTable by lazy {
+        UserTable(context)
+    }
+
+    private val doctorTable by lazy {
+        DoctorTable(context)
+    }
+
+
+    //========================================Account=================================================
     fun interAccount(data: AccountModel) {
         accountTable.insertAccount(data)
     }
@@ -24,5 +38,31 @@ class AppDatabase(context: Context) {
 
     fun getAccount(username: String, pass: String) =
         accountTable.getAccount(username, pass)
+
+
+    //========================================User=================================================
+    fun insertUser(data: UserModel) {
+        userTable.insertUser(data)
+    }
+
+    fun checkExitUser(username: String) = userTable.checkExitUser(username)
+
+    fun getUser(username: String) =
+        userTable.getUser(username)
+
+
+    //========================================User=================================================
+    fun insertNewDoctor(data: DoctorModel) {
+        doctorTable.insertNewDoctor(data)
+    }
+
+    fun getDoctorById(data: String) =
+        doctorTable.getDoctorById(data)
+
+    fun getDoctorByUsername(data: String) =
+        doctorTable.getDoctorByUsername(data)
+
+    fun getAllDataDoctor() =
+        doctorTable.getAllDataDoctor()
 
 }
