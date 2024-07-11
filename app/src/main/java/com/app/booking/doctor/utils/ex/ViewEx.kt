@@ -56,6 +56,17 @@ fun Context.openActivity(pClass: Class<out Activity>, bundle: Bundle?) {
     startActivity(intent)
 }
 
+fun Activity.openActivity(pClass: Class<out Activity>, bundle: Bundle?, isFinish: Boolean = false) {
+    val intent = Intent(this, pClass)
+    if (bundle != null) {
+        intent.putExtras(bundle)
+    }
+    startActivity(intent)
+    if (isFinish) {
+        finish()
+    }
+}
+
 fun Context.openActivity(pClass: Class<out Activity>, isFinish: Boolean = false) {
     openActivity(pClass, null)
     if (isFinish) {

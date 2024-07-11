@@ -28,7 +28,7 @@ class AccountTable(context: Context) :
 
     }
 
-    fun insertNewDoctor(data: AccountModel) {
+    fun insertAccount(data: AccountModel) {
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put("userName", data.userName)
@@ -38,7 +38,7 @@ class AccountTable(context: Context) :
         db.close()
     }
 
-    fun getAllDataDoctor(): ArrayList<AccountModel> {
+    fun getAllDataAccount(): ArrayList<AccountModel> {
         val listData = ArrayList<AccountModel>()
         val selectQuery = "SELECT  * FROM $TABLE_NAME"
         val db = this.writableDatabase
@@ -58,5 +58,37 @@ class AccountTable(context: Context) :
         cursor.close()
         db.close()
         return listData
+    }
+
+    fun getAccount(username: String, pass: String): AccountModel? {
+        val selectQuery =
+            "SELECT  * FROM $TABLE_NAME WHERE userName = '$username' AND password = '$pass'"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            return AccountModel(
+                cursor.getString(0),
+                cursor.getString(1),
+                cursor.getInt(2)
+            )
+        }
+        cursor.close()
+        db.close()
+        return null
+    }
+
+    fun checkExitUsername(username: String): Boolean {
+        val selectQuery =
+            "SELECT  * FROM $TABLE_NAME WHERE userName = '$username'"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            return true
+        }
+        cursor.close()
+        db.close()
+        return false
     }
 }

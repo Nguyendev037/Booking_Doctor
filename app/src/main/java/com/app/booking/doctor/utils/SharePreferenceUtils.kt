@@ -49,14 +49,11 @@ object SharePreferenceUtils {
     fun isFirstOpenApp(): Boolean = getBoolean("isFirstOpenApp", true)
     fun setFirstOpenApp(value: Boolean) = saveKey("isFirstOpenApp", value)
 
-    fun getLanguageCode(): String = getString("getLanguageCode", "")
-    fun setLanguageCode(value: String) = saveKey("getLanguageCode", value)
+    fun getUsername(): String = getString("getUsername", "")
+    fun setUsername(value: String) = saveKey("getUsername", value)
 
-    fun isShowIntro(): Boolean = getBoolean("isShowIntro", true)
-    fun setShowIntro(value: Boolean) = saveKey("isShowIntro", value)
-
-    fun getYearShowedRateApp(): Int = getInt("getYearShowedRateApp", 0)
-    fun setYearShowedRateApp(value: Int) = saveKey("getYearShowedRateApp", value)
+    fun getPassword(): String = getString("getPassword", "")
+    fun setPassword(value: String) = saveKey("getPassword", value)
 
 
 

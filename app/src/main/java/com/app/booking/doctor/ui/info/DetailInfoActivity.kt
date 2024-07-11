@@ -15,6 +15,22 @@ class DetailInfoActivity  : BaseActivity<ActivityDetailInfoBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        initView()
+        initData()
+        initListener()
+    }
+
+    private fun initView() {
+
+    }
+
+    private fun initData() {
+
+    }
+
+    private fun initListener() {
+
     }
 
     override fun inflateViewBinding(layoutInflater: LayoutInflater): ActivityDetailInfoBinding {

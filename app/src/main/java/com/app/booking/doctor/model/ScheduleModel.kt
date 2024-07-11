@@ -5,7 +5,8 @@ class ScheduleModel(
     var idDoctor: String = "",
     var idUser: String = "",
     var idPathological: String = "",
-    var time: String = "",
+    var date: String = "",
+    var time: Int = 0,
     var status: Int = 0,
 ) {
 }

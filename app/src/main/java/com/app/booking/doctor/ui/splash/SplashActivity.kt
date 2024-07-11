@@ -6,14 +6,22 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
+import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivitySplashBinding
+import com.app.booking.doctor.model.AccountModel
 import com.app.booking.doctor.ui.login.LoginActivity
+import com.app.booking.doctor.ui.main.doctor.MainDoctorActivity
+import com.app.booking.doctor.ui.main.user.MainUserActivity
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.ex.openActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
+
+    private val appDatabase by lazy {
+        AppDatabase(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +31,24 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         } else {
             checkLogin()
         }
-
     }
 
     private fun checkLogin() {
-        actionNext(LoginActivity::class.java)
+        val userName = SharePreferenceUtils.getUsername()
+        val pass = SharePreferenceUtils.getPassword()
+
+        val account = appDatabase.getAccount(userName, pass)
+        account?.let {
+            SharePreferenceUtils.setUsername(userName)
+            SharePreferenceUtils.setPassword(pass)
+            if (it.role == AccountModel.ROLE_USER) {
+                actionNext(MainUserActivity::class.java)
+            } else {
+                actionNext(MainDoctorActivity::class.java)
+            }
+        } ?: kotlin.run {
+            actionNext(LoginActivity::class.java)
+        }
     }
 
     private fun insetFirstData() {
