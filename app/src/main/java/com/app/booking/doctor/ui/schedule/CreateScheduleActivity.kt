@@ -36,18 +36,6 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
     }
 
     private fun initView() {
-        appDatabase.getAllDataDoctor().let {
-            ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                DataUtils.getDataDoctor()
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spDoctor.adapter = adapter
-            }
-        }
-
-
         ArrayAdapter(
             this,
             android.R.layout.simple_spinner_item,
@@ -57,6 +45,28 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
             binding.spTime.adapter = adapter
         }
 
+
+        ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            DataUtils.listPathological
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spPathological.adapter = adapter
+        }
+    }
+
+    private fun setDataDoctor() {
+        appDatabase.getAllDataDoctor().let {
+            ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                DataUtils.getDataDoctorByPathological(dataModel.pathological)
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.spDoctor.adapter = adapter
+            }
+        }
     }
 
     private fun initData() {
@@ -65,11 +75,10 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
                 System.currentTimeMillis().toString(),
                 DataUtils.listDoctorFirst[0].id,
                 SharePreferenceUtils.getUsername(),
-                "", "", 0 ,0
+                0, "", 0, 0
             )
             getNowDate()
-        } else {
-
+            setDataDoctor()
         }
     }
 
@@ -78,6 +87,24 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
             onBack()
         }
 
+        binding.spPathological.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (dataModel.pathological != position) {
+                        dataModel.pathological = position
+                        setDataDoctor()
+                        dataModel.idDoctor = DataUtils.getFirstDoctorIdOfPathological(position)
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {}
+            }
+
         binding.spDoctor.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -85,7 +112,7 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
                 position: Int,
                 id: Long
             ) {
-                dataModel.idDoctor = DataUtils.listDoctorFirst[position].id
+                dataModel.idDoctor = DataUtils.getFirstDoctorId(dataModel.pathological, position)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
@@ -110,7 +137,6 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
         }
 
         binding.txtNext.clickSafe {
-            dataModel.pathological = binding.edtPathological.text.toString()
             appDatabase.insertNewSchedule(dataModel)
             finish()
         }

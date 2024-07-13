@@ -28,6 +28,7 @@ class DoctorTable(context: Context) :
                     "name TEXT, " +
                     "age TEXT," +
                     "sex INT," +
+                    "pathological INT," +
                     "exp TEXT," +
                     "avt TEXT" +
                     ")"
@@ -46,6 +47,7 @@ class DoctorTable(context: Context) :
         contentValues.put("name", data.name)
         contentValues.put("age", data.age)
         contentValues.put("sex", data.sex)
+        contentValues.put("pathological", data.pathological)
         contentValues.put("exp", data.exp)
         contentValues.put("avt", data.avt)
         db.insert(TABLE_NAME, null, contentValues)
@@ -64,8 +66,9 @@ class DoctorTable(context: Context) :
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getInt(4),
-                cursor.getString(5),
-                cursor.getString(6)
+                cursor.getInt(5),
+                cursor.getString(6),
+                cursor.getString(7)
             )
         }
 
@@ -86,8 +89,9 @@ class DoctorTable(context: Context) :
                 cursor.getString(2),
                 cursor.getString(3),
                 cursor.getInt(4),
-                cursor.getString(5),
-                cursor.getString(6)
+                cursor.getInt(5),
+                cursor.getString(6),
+                cursor.getString(7)
             )
         }
 
@@ -110,8 +114,9 @@ class DoctorTable(context: Context) :
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getInt(4),
-                    cursor.getString(5),
-                    cursor.getString(6)
+                    cursor.getInt(5),
+                    cursor.getString(6),
+                    cursor.getString(7)
                 )
                 listData.add(contact)
             } while (cursor.moveToNext())

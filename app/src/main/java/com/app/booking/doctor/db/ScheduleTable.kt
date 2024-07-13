@@ -26,7 +26,7 @@ class ScheduleTable(context: Context) :
                     "id TEXT PRIMARY KEY, " +
                     "idDoctor TEXT, " +
                     "idUser TEXT, " +
-                    "pathological TEXT," +
+                    "pathological INT," +
                     "date TEXT," +
                     "time INT," +
                     "status INT" +
@@ -62,7 +62,7 @@ class ScheduleTable(context: Context) :
                 cursor.getString(0),
                 cursor.getString(1),
                 cursor.getString(2),
-                cursor.getString(3),
+                cursor.getInt(3),
                 cursor.getString(4),
                 cursor.getInt(5),
                 cursor.getInt(6)
@@ -86,7 +86,7 @@ class ScheduleTable(context: Context) :
                     cursor.getString(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getString(3),
+                    cursor.getInt(3),
                     cursor.getString(4),
                     cursor.getInt(5),
                     cursor.getInt(6)
@@ -112,7 +112,7 @@ class ScheduleTable(context: Context) :
                     cursor.getString(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getString(3),
+                    cursor.getInt(3),
                     cursor.getString(4),
                     cursor.getInt(5),
                     cursor.getInt(6)

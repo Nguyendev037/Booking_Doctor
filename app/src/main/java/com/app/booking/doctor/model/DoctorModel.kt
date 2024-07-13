@@ -6,6 +6,7 @@ class DoctorModel(
     var name: String = "",
     var age: String = "",
     var sex: Int = 0,
+    var pathological: Int = 0,
     var exp: String = "",
     var avt: String = "",
 ) {

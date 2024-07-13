@@ -41,7 +41,7 @@ class DialogDetailSchedule(private val context: Context) {
         }
         binding.txtDate.text = item.date
         binding.txtTime.text = DataUtils.listScheduleTime[item.time]
-        binding.txtPathological.text = item.pathological
+        binding.txtPathological.text = DataUtils.listPathological[item.pathological]
 
         binding.txtNext.setOnTouchScale{
             hide()
