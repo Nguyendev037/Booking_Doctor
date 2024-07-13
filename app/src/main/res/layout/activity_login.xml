@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#008080"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
@@ -35,7 +36,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginBottom="28dp"
             android:text="Đăng nhập"
-            android:textColor="@color/primary_app"
+            android:textColor="@color/white"
             android:textSize="34dp"
             android:textStyle="bold" />
 
@@ -123,7 +124,7 @@
                 android:paddingStart="@dimen/_5sdp"
                 android:paddingLeft="@dimen/_5sdp"
                 android:text="Đăng ký"
-                android:textColor="@color/color_blue"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>
@@ -156,7 +157,7 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingLeft="@dimen/_5sdp"
             android:text="Trợ giúp"
-            android:textColor="@color/color_blue"
+            android:textColor="@color/white"
             android:textSize="@dimen/_12sdp" />
 
     </LinearLayout>

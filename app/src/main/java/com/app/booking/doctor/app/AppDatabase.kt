@@ -2,10 +2,10 @@ package com.app.booking.doctor.app
 
 
 import android.content.Context
-import com.app.booking.doctor.db.AccountTable
-import com.app.booking.doctor.db.DoctorTable
-import com.app.booking.doctor.db.ScheduleTable
-import com.app.booking.doctor.db.UserTable
+import com.app.booking.doctor.`db-method`.AccountTable
+import com.app.booking.doctor.`db-method`.DoctorTable
+import com.app.booking.doctor.`db-method`.ScheduleTable
+import com.app.booking.doctor.`db-method`.UserTable
 import com.app.booking.doctor.model.AccountModel
 import com.app.booking.doctor.model.DoctorModel
 import com.app.booking.doctor.model.ScheduleModel
@@ -65,8 +65,6 @@ class AppDatabase(context: Context) {
     fun getDoctorById(data: String) =
         doctorTable.getDoctorById(data)
 
-    fun getDoctorByUsername(data: String) =
-        doctorTable.getDoctorByUsername(data)
 
     fun getAllDataDoctor() =
         doctorTable.getAllDataDoctor()
@@ -80,10 +78,5 @@ class AppDatabase(context: Context) {
     fun getAllScheduleOfUser(data: String) =
         scheduleTable.getAllScheduleOfUser(data)
 
-    fun getAllScheduleOfDoctor(data: String) =
-        scheduleTable.getAllScheduleOfDoctor(data)
-
-    fun getScheduleById(data: String) =
-        scheduleTable.getScheduleById(data)
 
 }

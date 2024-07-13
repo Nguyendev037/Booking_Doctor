@@ -41,13 +41,13 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         account?.let {
             SharePreferenceUtils.setUsername(userName)
             SharePreferenceUtils.setPassword(pass)
-            if (it.role == AccountModel.ROLE_USER) {
-                if (appDatabase.checkExitUser(userName)) {
-                    actionNext(MainUserActivity::class.java)
-                } else {
-                    actionNext(LoginActivity::class.java)
-                }
+
+            if (appDatabase.checkExitUser(userName)) {
+                actionNext(MainUserActivity::class.java)
+            } else {
+                actionNext(LoginActivity::class.java)
             }
+
         } ?: kotlin.run {
             actionNext(LoginActivity::class.java)
         }

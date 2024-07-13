@@ -1,4 +1,4 @@
-package com.app.booking.doctor.db
+package com.app.booking.doctor.`db-method`
 
 import android.content.ContentValues
 import android.content.Context
@@ -52,27 +52,6 @@ class ScheduleTable(context: Context) :
         db.close()
     }
 
-    fun getScheduleById(data: String): ScheduleModel? {
-        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE id = '$data'"
-        val db = this.writableDatabase
-        val cursor = db.rawQuery(selectQuery, null)
-
-        if (cursor.moveToFirst()) {
-            return ScheduleModel(
-                cursor.getString(0),
-                cursor.getString(1),
-                cursor.getString(2),
-                cursor.getInt(3),
-                cursor.getString(4),
-                cursor.getInt(5),
-                cursor.getInt(6)
-            )
-        }
-
-        cursor.close()
-        db.close()
-        return null
-    }
 
     fun getAllScheduleOfUser(data: String): ArrayList<ScheduleModel> {
         val listData = ArrayList<ScheduleModel>()
@@ -100,44 +79,5 @@ class ScheduleTable(context: Context) :
         return listData
     }
 
-    fun getAllScheduleOfDoctor(data: String): ArrayList<ScheduleModel> {
-        val listData = ArrayList<ScheduleModel>()
-        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE idDoctor = '$data'"
-        val db = this.writableDatabase
-        val cursor = db.rawQuery(selectQuery, null)
 
-        if (cursor.moveToFirst()) {
-            do {
-                val contact = ScheduleModel(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getInt(3),
-                    cursor.getString(4),
-                    cursor.getInt(5),
-                    cursor.getInt(6)
-                )
-                listData.add(contact)
-            } while (cursor.moveToNext())
-        }
-
-        cursor.close()
-        db.close()
-        return listData
-    }
-
-    fun checkExitSchedule(idDoctor: String, date: String, time: Int): Boolean {
-        val selectQuery =
-            "SELECT  * FROM $TABLE_NAME WHERE idDoctor = '$idDoctor' AND date ='$date' AND time =$time"
-        val db = this.writableDatabase
-        val cursor = db.rawQuery(selectQuery, null)
-
-        if (cursor.moveToFirst()) {
-            return true
-        }
-        cursor.close()
-        db.close()
-
-        return false
-    }
 }

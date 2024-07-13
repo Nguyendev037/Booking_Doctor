@@ -1,4 +1,4 @@
-package com.app.booking.doctor.db
+package com.app.booking.doctor.`db-method`
 
 import android.content.ContentValues
 import android.content.Context
@@ -77,28 +77,6 @@ class DoctorTable(context: Context) :
         return null
     }
 
-    fun getDoctorByUsername(data: String): DoctorModel? {
-        val selectQuery = "SELECT  * FROM $TABLE_NAME WHERE userName = '$data'"
-        val db = this.writableDatabase
-        val cursor = db.rawQuery(selectQuery, null)
-
-        if (cursor.moveToFirst()) {
-            return DoctorModel(
-                cursor.getString(0),
-                cursor.getString(1),
-                cursor.getString(2),
-                cursor.getString(3),
-                cursor.getInt(4),
-                cursor.getInt(5),
-                cursor.getString(6),
-                cursor.getString(7)
-            )
-        }
-
-        cursor.close()
-        db.close()
-        return null
-    }
 
     fun getAllDataDoctor(): ArrayList<DoctorModel> {
         val listData = ArrayList<DoctorModel>()

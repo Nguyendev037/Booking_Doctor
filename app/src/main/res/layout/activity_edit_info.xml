@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#008080"
     tools:context=".ui.info.EditInfoActivity">
 
     <LinearLayout
@@ -89,10 +89,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:fontFamily="@font/inter_400"
+                android:fontFamily="@font/inter_600"
                 android:paddingVertical="@dimen/_2sdp"
                 android:text="Tên hiển thị"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
@@ -112,10 +112,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_12sdp"
-                android:fontFamily="@font/inter_400"
+                android:fontFamily="@font/inter_600"
                 android:paddingVertical="@dimen/_2sdp"
                 android:text="Tuổi"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText
@@ -136,10 +136,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_12sdp"
-                android:fontFamily="@font/inter_400"
+                android:fontFamily="@font/inter_600"
                 android:paddingVertical="@dimen/_2sdp"
                 android:text="Giới tính"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <LinearLayout
@@ -184,10 +184,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_12sdp"
-                android:fontFamily="@font/inter_400"
+                android:fontFamily="@font/inter_600"
                 android:paddingVertical="@dimen/_2sdp"
                 android:text="Số điện thoại"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <EditText

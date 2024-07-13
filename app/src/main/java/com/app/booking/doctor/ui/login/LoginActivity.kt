@@ -96,7 +96,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             return
         }
 
-        appDatabase.interAccount(AccountModel(userName, pass, AccountModel.ROLE_USER))
+        appDatabase.interAccount(AccountModel(userName, pass, 0))
         SharePreferenceUtils.setUsername(userName)
         SharePreferenceUtils.setPassword(pass)
 
@@ -118,14 +118,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         account?.let {
             SharePreferenceUtils.setUsername(userName)
             SharePreferenceUtils.setPassword(pass)
-            if (it.role == AccountModel.ROLE_USER) {
-                val check = appDatabase.checkExitUser(userName)
-                if (check) {
-                    actionNext(MainUserActivity::class.java)
-                } else {
-                    openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
-                }
+
+            val check = appDatabase.checkExitUser(userName)
+            if (check) {
+                actionNext(MainUserActivity::class.java)
+            } else {
+                openActivity(EditInfoActivity::class.java, bundleOf("action" to true), true)
             }
+
         } ?: kotlin.run {
             showToast("Thông tin đăng nhập không chính xác!")
         }
