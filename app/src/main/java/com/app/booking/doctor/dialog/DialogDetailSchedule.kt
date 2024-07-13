@@ -9,6 +9,7 @@ import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.databinding.LayoutDialogDetailScheduleBinding
 import com.app.booking.doctor.model.ScheduleModel
 import com.app.booking.doctor.utils.data.DataUtils
+import com.app.booking.doctor.utils.ex.loadGlide
 import com.app.booking.doctor.utils.ex.setOnTouchScale
 
 class DialogDetailSchedule(private val context: Context) {
@@ -37,7 +38,8 @@ class DialogDetailSchedule(private val context: Context) {
     fun show(item: ScheduleModel) {
 
         AppDatabase(binding.root.context).getDoctorById(item.idDoctor)?.let {
-            binding.txtName.text = "[${it.id}] - ${it.name}"
+            binding.txtName.text = "${it.name}"
+            binding.imgAvt.loadGlide(it.avt)
         }
         binding.txtDate.text = item.date
         binding.txtTime.text = DataUtils.listScheduleTime[item.time]

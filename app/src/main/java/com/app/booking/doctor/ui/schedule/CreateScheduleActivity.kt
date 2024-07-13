@@ -10,6 +10,7 @@ import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseActivity
 import com.app.booking.doctor.databinding.ActivityCreateScheduleBinding
 import com.app.booking.doctor.model.ScheduleModel
+import com.app.booking.doctor.ui.adapter.DoctorSpinnerAdapter
 import com.app.booking.doctor.utils.SharePreferenceUtils
 import com.app.booking.doctor.utils.data.DataUtils
 import com.app.booking.doctor.utils.ex.clickSafe
@@ -57,16 +58,10 @@ class CreateScheduleActivity : BaseActivity<ActivityCreateScheduleBinding>() {
     }
 
     private fun setDataDoctor() {
-        appDatabase.getAllDataDoctor().let {
-            ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                DataUtils.getDataDoctorByPathological(dataModel.pathological)
-            ).also { adapter ->
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                binding.spDoctor.adapter = adapter
-            }
-        }
+        binding.spDoctor.adapter = DoctorSpinnerAdapter(
+            this,
+            DataUtils.getDataDoctorByPathological(dataModel.pathological)
+        )
     }
 
     private fun initData() {

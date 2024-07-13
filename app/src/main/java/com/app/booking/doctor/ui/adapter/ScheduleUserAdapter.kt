@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import com.app.booking.doctor.app.AppDatabase
 import com.app.booking.doctor.base.BaseAdapterRecyclerView
 import com.app.booking.doctor.databinding.LayoutItemScheduleOfUserBinding
-import com.app.booking.doctor.model.DoctorModel
 import com.app.booking.doctor.model.ScheduleModel
 import com.app.booking.doctor.utils.data.DataUtils
 
@@ -24,7 +23,7 @@ class ScheduleUserAdapter : BaseAdapterRecyclerView<ScheduleModel, LayoutItemSch
         position: Int
     ) {
         AppDatabase(binding.root.context).getDoctorById(item.idDoctor)?.let {
-            binding.txtName.text = "[${it.id}] - ${it.name}"
+            binding.txtName.text = "${it.name}"
         }
         binding.txtDate.text = item.date
         binding.txtTime.text = DataUtils.listScheduleTime[item.time]

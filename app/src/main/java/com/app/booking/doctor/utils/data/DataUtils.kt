@@ -13,13 +13,11 @@ object DataUtils {
         return data
     }
 
-    fun getDataDoctorByPathological(pathological: Int): ArrayList<String> {
-        val data = ArrayList<String>()
-        listDoctorFirst.filter {
+    fun getDataDoctorByPathological(pathological: Int): ArrayList<DoctorModel> {
+        val data = ArrayList<DoctorModel>()
+        data.addAll(listDoctorFirst.filter {
             it.pathological == pathological
-        }.forEach {
-            data.add("[${it.id}] - ${it.name}")
-        }
+        })
         return data
     }
 
@@ -74,7 +72,7 @@ object DataUtils {
             "file:///android_asset/avt/avt_1.png"
         ),
         DoctorModel(
-            "07010002", "d002", "Phạm Thành Quang", "40", 0,
+            "07010002", "d002", "Phạm Thanh Thu", "40", 1,
             3,
             "Hơn 8 năm kinh nghiệm về các bệnh xương khớp",
             "file:///android_asset/avt/avt_2.png"
